@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HelloWorld.Models.SoDienThoai>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách số điện thoại</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Add")
+</p>
+
+<table id="datatable" class="table table-striped table-bordered bulk_action">
+    <thead>
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{ var i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoDT)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaDT }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaDT }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaDT })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

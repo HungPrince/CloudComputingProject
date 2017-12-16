@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Layout = null;
+}
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="~/css/style.css" rel='stylesheet' type='text/css' />
+<!-- Graph CSS -->
+<link href="~/css/font-awesome.css" rel="stylesheet">
+<!-- jQuery -->
+<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+<!-- lined-icons -->
+<link rel="stylesheet" href="~/css/icon-font.min.css" type='text/css' />
+<!-- //lined-icons -->
+<script src="js/jquery-1.10.2.min.js"></script>
+
+<div class="error_page">
+    <!--/login-top-->
+    @using (Html.BeginForm("Login", "Account"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="error-top">
+            <h2 class="inner-tittle page">Management</h2>
+            <div class="login">
+                <h3 class="inner-tittle t-inner">Login</h3>
+                <div class="buttons login">
+                    <ul>
+                        <li><a class="hvr-sweep-to-right" style="background-color:red !important" href="@Url.Action("LoginWithGooglePlus", "Login")"><i class="fa fa-google-plus"></i>Login with Google +</a></li>
+                        <li class="lost"><a href="#" class="hvr-sweep-to-left">Twitter</a> </li>
+                        <div class="clearfix"></div>
+                    </ul>
+                </div>
+                <form>
+                    <input type="text" class="text" autocomplete="off" value="E-mail address" name="UserName" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail address';}">
+                    <input type="password" value="Password" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+                    <div class="submit"><input type="submit" value="Login"></div>
+                    <div class="clearfix"></div>
+
+                    <div class="new">
+                        <p><label class="checkbox11"><input type="checkbox" name="checkbox"><i> </i>Forgot Password ?</label></p>
+                        <p class="sign">Do not have an account ? @Html.ActionLink("Sign Up", "Register", "Account")</p>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+
+    <!--//login-top-->
+</div>
+
+<!--//login-->
+<!--js -->
+<script src="~/js/jquery.nicescroll.js"></script>
+<script src="~/js/scripts.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
